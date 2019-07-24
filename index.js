@@ -19,7 +19,7 @@ app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 
 app.get('/api/forecast', function(req, res) {
-    axios(`https://api.darksky.net/forecast/${token}/37.8267,-122.4233`, function (error, response, body) {
+    axios(`https://api.darksky.net/forecast/6fcc0f895857627606cae8c37cd1e787/37.8267,-122.4233`, function (error, response, body) {
         console.log('error:', error); 
         console.log('statusCode:', response && response.statusCode); 
         console.log('body:', body);
