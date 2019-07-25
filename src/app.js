@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import Table from './components/Table'
+import Table from './Table'
 import Aux from './HOC/Aux'
 import axios from 'axios'
+import Button from './Buttons'
 import './app.css'
 
 class App extends React.Component{
@@ -10,18 +11,20 @@ class App extends React.Component{
         super()
         this.state = {
             isLoading: true,
-            forecast: ''
+            weather2017: ''
         }
     }
 
 componentDidMount(){
     console.log('componentDidMount')
-    axios.get('http://localhost:4000/api/forecast')
-    .then(res => console.log(res.data))
+    axios.get('http://localhost:4000/api/forecast2017')
+    .then(res => this.setState({ weather: res.data.daily.data }))
+    .catch(err => console.log(err))
 }
+
 render(){
-  
-    // console.log(forecast)
+    console.log(this.state.weather)
+  const { weather } = this.state
       return (
   
       <Aux>
@@ -29,6 +32,10 @@ render(){
         <h1>Hottest day of the year in London comparison 2017-2018-2019</h1>
       </header>
       <h1></h1>
+      <Table 
+      forecast={this.state.weather}
+      />
+      <Button/>
       </Aux>
       )
   }
