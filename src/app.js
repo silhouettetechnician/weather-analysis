@@ -2,40 +2,53 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Table from './Table'
 import Aux from './HOC/Aux'
-import axios from 'axios'
-import Button from './Buttons'
+import Chart from './Chart'
+import Home from './Home'
+import { BrowserRouter as Browser, Switch, Route, Link } from 'react-router-dom'
+import { Ripple } from '@progress/kendo-react-ripple';
+import '@progress/kendo-theme-material/dist/all.css';
+import '@progress/kendo-theme-default/dist/all.css'
+import './App.css';
+import 'bootstrap-4-grid/css/grid.min.css';
 import './app.css'
 
 class App extends React.Component{
-    constructor(){
-        super()
+    constructor( props ){
+        super( props )
         this.state = {
+            
             isLoading: true,
-            weather2017: ''
+           
         }
+        this.appContainer = React.createRef()
     }
 
-componentDidMount(){
-    console.log('componentDidMount')
-    axios.get('http://localhost:4000/api/forecast2017')
-    .then(res => this.setState({ weather: res.data.daily.data }))
-    .catch(err => console.log(err))
-}
 
 render(){
-    console.log(this.state.weather)
-  const { weather } = this.state
-      return (
-  
+
+        return (
       <Aux>
-      <header className="App-header">
-        <h1>Hottest day of the year in London comparison 2017-2018-2019</h1>
-      </header>
-      <h1></h1>
-      <Table 
-      forecast={this.state.weather}
-      />
-      <Button/>
+        <Browser>
+            <Switch>
+          <Ripple>
+           
+                <nav>
+                <Link to='/table'>Table</Link>
+                <Link to='/chart'>Chart</Link>
+                <Link to='/'>Home</Link>
+                </nav>
+
+
+           <Route exact path='/table' component={Table} />
+           <Route exact path='/chart' component={Chart} />    
+            <Route exact path='/' component={Home} />
+          
+    
+        
+        
+          </Ripple>
+          </Switch>
+          </Browser>
       </Aux>
       )
   }

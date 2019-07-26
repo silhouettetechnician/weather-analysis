@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.static(`${__dirname}/dist`))
 
 app.get('/api/forecast2017', function (req, res){
-    request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278,${time2017}?exclude=currently,units=auto`, function (error, response, body) {
+    request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278,${time2017}?units=auto`, function (error, response, body) {
         console.log('error:', error)
         console.log('statusCode:', response && response.statusCode)
         console.log('body:', body)
@@ -21,7 +21,7 @@ app.get('/api/forecast2017', function (req, res){
     })
 })
 
-app.get('/api/forecast/2018', function (req, res){
+app.get('/api/forecast2018', function (req, res){
     request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278,${time2018}?units=auto`, function (error, response, body) {
         console.log('error:', error)
         console.log('statusCode:', response && response.statusCode)
@@ -30,8 +30,17 @@ app.get('/api/forecast/2018', function (req, res){
     })
 })
 
-app.get('/api/forecast/2019', function (req, res){
+app.get('/api/forecast2019', function (req, res){
     request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278,${time2019}?units=auto`, function (error, response, body) {
+        console.log('error:', error)
+        console.log('statusCode:', response && response.statusCode)
+        console.log('body:', body)
+        res.send(body)
+    })
+})
+
+app.get('/api/forecast2019', function (req, res){
+    request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278?units=auto`, function (error, response, body) {
         console.log('error:', error)
         console.log('statusCode:', response && response.statusCode)
         console.log('body:', body)

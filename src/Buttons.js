@@ -6,9 +6,9 @@ import { savePDF } from '@progress/kendo-react-pdf';
 
 const Buttons = ( props ) => {
 return(
-    <div className='buttons-right'>
-    <Button primary={true}>Share</Button>
-    <Button>Export to PDF</Button>
+    <div className='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 buttons-right'>
+    <Button primary={true} onClick={props.share} >Share</Button>
+    <Button onClick={props.pdf}>Export to PDF</Button>
     </div>
 )
 }

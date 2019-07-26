@@ -1,10 +1,15 @@
+body{
+  box-sizing: border-box;
+  background-color: #282c34;
+}
+
 .App {
     text-align: center;
   }
   
   
   .App-header {
-    background-color: #282c34;
+   
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,10 +23,33 @@
     color: #61dafb;
   }
 
+  .titlehome{
+    font-family: Graphik;
+    font-size: 3em;
+    text-transform: uppercase;
+    margin: 30px 50px;
+    text-align: center;
+    color: whitesmoke;
+  }
+
+  nav{
+    text-align: center;
+    margin-top:3px;
+  }
+
+  nav a{
+    margin: 0 5px;
+    font-family: CeraPro;
+    text-transform: uppercase;
+    color: white;
+  }
+
   h1 {
     color:rgb(63, 81, 181);
     font-weight: bold;
+    margin-top: -15px;
   }
+
   .buttons-right>button {
     float: right;
     margin: 5px;
@@ -45,6 +73,27 @@
   .percentage-container:first-child {
     padding-bottom: 3em;
   }
+
+  /* .container .row div {
+    outline: solid 1px black;
+  } */
+
+  .row{
+    justify-content: center;
+  }
+  .row1{
+    display: flex;
+    width: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .buttons{
+    justify-content: flex-end;
+  }
+
+  /* TABLE */
+
   
   @keyframes App-logo-spin {
     from {
@@ -55,3 +104,15 @@
     }
   }
   
+  @font-face{
+    src: './assets/fonts/Kollektif-Bold.ttf';
+    font-family: Kollektif;
+  }
+  @font-face{
+    src: './assets/fonts/Graphik-900-Super.otf';
+    font-family: Graphik;
+  }
+  @font-face{
+    src: './assets/fonts/CeraPro-Bold.ttf';
+    font-family: CeraPro;
+  }
