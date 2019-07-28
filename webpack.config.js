@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/app.js',
@@ -39,9 +38,6 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    new Dotenv({
-      path: path.resolve(__dirname, '..', '.env'),
-    }), 
     new webpack.EnvironmentPlugin({...process.env})  
   ],
     node: {
