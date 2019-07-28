@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import LineChart from './LineChart'
-import Buttons from '../Buttons'
+import Buttons from '../UI/Buttons'
 import Spinner from '../Spinner/Spinner'
 import { Button } from '@progress/kendo-react-buttons';
 import axios from 'axios'

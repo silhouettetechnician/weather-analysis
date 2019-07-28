@@ -2,7 +2,7 @@ import '@progress/kendo-theme-material/dist/all.css';
 import 'bootstrap-4-grid/css/grid.min.css';
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Table from './Table'
+import Table from './Table/Table'
 import Aux from './HOC/Aux'
 import Chart from './Chart/Chart'
 import NavBar from './NavBar/Nav'
