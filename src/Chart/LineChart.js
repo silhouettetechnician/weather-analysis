@@ -1,4 +1,5 @@
 import React from 'react';
+import '@progress/kendo-theme-material/dist/all.css';
 import 'hammerjs';
 import {
   Chart,
@@ -23,8 +24,6 @@ const LineChart = ( props ) => {
     const dewPoint = data.map(item => item.dewPoint)
     const windGust = data.map(item => item.windGust)
     
-
-
     return (  
         
           <Chart style={{ height: 400, width: 600, backgroundColor: 'transparent'}}>

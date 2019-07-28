@@ -39,7 +39,7 @@ app.get('/api/forecast2019', function (req, res){
     })
 })
 
-app.get('/api/forecast2019', function (req, res){
+app.get('/api/todays', function (req, res){
     request(`https://api.darksky.net/forecast/${token}/51.5074,0.1278?units=auto`, function (error, response, body) {
         console.log('error:', error)
         console.log('statusCode:', response && response.statusCode)

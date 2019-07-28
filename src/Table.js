@@ -57,11 +57,11 @@ class Table extends React.Component{
 
         const { tableWeather17, tableWeather18, tableWeather19 } = this.state
     return(
-        <div className="bootstrap-wrapper" ref={(el) => this.appContainer = el}>
+        <div className="bootstrap-wrapper TableBody" ref={(el) => this.appContainer = el}>
             <div className="app-container container">
             <div className="row">
             <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                <h1>Table analysis</h1>
+                <h1 className='chartHeading'>Table analysis</h1>
                 <Buttons className='buttons' pdf={this.handlePDFExport} share={this.handleShare}/>
             </div>
             </div>

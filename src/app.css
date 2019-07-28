@@ -1,6 +1,27 @@
 body{
   box-sizing: border-box;
-  background-color: #282c34;
+}
+
+.Home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 0;
+  margin: 0 auto;
+  margin-left: -8px;
+  background-color: rgb(42,46, 49);
+}
+
+.TitleHome{
+  font-family: Graphik;
+  font-size: 2.5em;
+  margin: 40px 50px;
+  text-align: center;
+  color: whitesmoke;
 }
 
 .App {
@@ -8,7 +29,7 @@ body{
   }
   
   
-  .App-header {
+.App-header {
    
     min-height: 100vh;
     display: flex;
@@ -19,28 +40,123 @@ body{
     color: white;
   }
   
-  .App-link {
-    color: #61dafb;
-  }
 
-  .titlehome{
-    font-family: Graphik;
-    font-size: 3em;
-    text-transform: uppercase;
-    margin: 30px 50px;
-    text-align: center;
-    color: whitesmoke;
-  }
+/* NAVIGATION  */
 
-  nav{
+  .Toolbar{
+    position: fixed;
     text-align: center;
+    margin: 0 auto;
     margin-top:3px;
+    height: 30px;
+    font-family: Kollektif;
+  }
+ .Toolbar > a:nth-child(1){
+    border-right: 1px solid black;
+  }
+ 
+  .Toolbar> a:nth-child(2){
+    border-right: 1px solid black;
   }
 
-  nav a{
-    margin: 0 5px;
-    font-family: CeraPro;
+  .Toolbar a{
+    position: relative;
+    text-decoration: none;
     text-transform: uppercase;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+  }
+
+  .Toolbar a:before{
+
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .Toolbar a:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    color: lightgray;
+  }
+
+  /* TOOLBAR HOME */
+
+  header{
+    margin-top: -8px;
+    margin-left: -8px
+  }
+  .ToolbarHome nav{
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-content: center;
+  }
+  .ToolbarHome{
+    position: fixed;
+    text-align: center;
+    margin-top:-2px;
+    padding-left: 8px;
+    height: 35px;
+    font-family: Kollektif;
+    background-color: rgb(42,46, 49);
+    width: 100%;
+    z-index: 10;
+  }
+
+  .ToolbarHome > a:nth-child(1){
+    border-right: 1px solid #FFFFFF;
+  }
+    
+  .ToolbarHome> a:nth-child(2){
+    border-right: 1px solid #FFFFFF;
+  }
+
+  .ToolbarHome a{
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(237, 187,64);
+    padding: 15px 10px;
+    margin-top: 10px; 
+  }
+
+  .ToolbarHome a:before{
+
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .ToolbarHome a:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    color: lightgray;
+  }
+
+  footer{
     color: white;
   }
 
@@ -54,32 +170,15 @@ body{
     float: right;
     margin: 5px;
   }
+
   .app-container {
     padding: 25px;
+    margin-top: 25px;
   }
   
-  .percentage-number {
-    color: rgb(63, 81, 181);
-    font-size: 50px;
-    font-weight: bold;
-  }
-  .percentage-sign {
-    color: rgb(63, 81, 181);
-    font-size: 40px;
-  }
-  .percentage-container {
-    text-align: center;
-  }
-  .percentage-container:first-child {
-    padding-bottom: 3em;
-  }
-
-  /* .container .row div {
-    outline: solid 1px black;
-  } */
-
   .row{
     justify-content: center;
+    display: flex;
   }
   .row1{
     display: flex;
@@ -88,11 +187,105 @@ body{
     text-align: center;
     justify-content: center;
   }
+
+  .buttonContainer{
+    display: inline;
+   
+  }
+  
   .buttons{
-    justify-content: flex-end;
+    
+    display: inline-block;
   }
 
+  .iframeContainer{
+    display: flex;
+    justify-content: center;
+  }
+
+  .weatherwidget-io{
+    height: 300px;
+    width: 800px;
+    margin-top: -25px;
+    margin-bottom: 25px;
+  }
+
+/* CHART */
+
+.chartHeading{
+  font-family: Gotham;
+  font-size: 2.5em;
+  margin-top: 2px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 15px;
+  text-align: center;
+  white-space: nowrap;
+  /* -webkit-text-stroke: 1px rgb(237, 187,64); */
+  text-shadow:
+      3px 3px 0 rgb(89, 149, 240),
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
+
+}
   /* TABLE */
+
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+  .text-left{
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+    border-right: solid 1px rgba(255,255,255,0.1);
+    text-align: center;
+  }
+  
+  .TableBody{
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin-left: -10px;
+    margin-top: -25px;
+  }
+
+  .ChartBody{
+    margin-top: -25px;
+  }
+  /* demo styles */
+
+
+  
 
   
   @keyframes App-logo-spin {

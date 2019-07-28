@@ -9,13 +9,16 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve('dist')
   },
+
   module: {
     rules: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.css$/, loader: ['style-loader', 'css-loader'] },
-      { test: /\.s(a|c)ss$/, loader: ['style-loader', 'css-loader', 'sass-loader'] }
-    ]
+      { test: /\.s(a|c)ss$/, loader: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
+]
   },
+
   devServer: {
     contentBase: path.resolve('src'),
     hot: true,
@@ -36,7 +39,8 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    new Dotenv()  
+    new Dotenv(), 
+    new webpack.EnvironmentPlugin({...process.env})  
   ],
     node: {
       fs: 'empty'

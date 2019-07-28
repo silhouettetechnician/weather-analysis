@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import LineChart from './LineChart'
-import Buttons from './Buttons'
+import Buttons from '../Buttons'
+import Spinner from '../Spinner/Spinner'
 import { Button } from '@progress/kendo-react-buttons';
 import axios from 'axios'
 import { savePDF } from '@progress/kendo-react-pdf';
 import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 import { Input } from '@progress/kendo-react-inputs'; 
-import Aux from './HOC/Aux'
+import Aux from '../HOC/Aux'
 
 class Chart extends React.Component{
     constructor( props ){
@@ -26,20 +27,21 @@ class Chart extends React.Component{
         console.log('componentDidMount')
         axios.get('http://localhost:4000/api/forecast2017')
         .then(res => {
-             this.setState({ weather17: res.data.daily.data[0] })
+             this.setState({ weather17: res.data.daily.data[0], isLoading: false })
         })
+        .then(this.setState({ isLoading: false}))
         .catch(err => console.log(err))
         .then(
         axios.get('http://localhost:4000/api/forecast2018')
         .then(res => {
-            this.setState({weather18: res.data.daily.data[0]})
+            this.setState({weather18: res.data.daily.data[0], isLoading: false})
         })
         .catch(err => console.log(err))
         )
         .then(
         axios.get('http://localhost:4000/api/forecast2019')
         .then(res => {
-            this.setState({weather19: res.data.daily.data[0]})
+            this.setState({weather19: res.data.daily.data[0], isLoading: false})
         })
         .catch(err => console.log(err))
         )
@@ -56,25 +58,34 @@ class Chart extends React.Component{
 
     render(){
         const { weather17, weather18, weather19 } = this.state
+        
+        if(this.state.isLoading){
+        chart = <Spinner />
+        }
+        let chart = 
+        <LineChart
+        chartDataone={weather17}
+        chartDatatwo={weather18}
+        chartDatathree={weather19}
+           /> 
+
     return ( 
         <Aux>
-    <div className="bootstrap-wrapper App-header" ref={(el) => this.appContainer = el}>
-        <div className="app-container container">
+    <div className='bootstrap-wrapper ChartBody' ref={(el) => this.appContainer = el}>
+        <div className='app-container container'>
           <div className="row">
             <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-              <h1>Visual temperature comparison</h1>
+              <h1 className='chartHeading'>Visual temperature comparison</h1>
+              <div className='buttonContainer'>
               <Buttons className='buttons' pdf={this.handlePDFExport} share={this.handleShare}/>
+              </div>
             </div>
           </div>
           <div className="row1">
            
             <div>
                
-                  <LineChart
-                  chartDataone={weather17}
-                  chartDatatwo={weather18}
-                  chartDatathree={weather19}
-                     /> 
+            {chart}
             
             </div>
           </div>

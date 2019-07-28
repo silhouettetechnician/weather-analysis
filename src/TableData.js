@@ -2,9 +2,11 @@ import React from 'react'
 
 
 const TableData = ( props ) => {
+    const date = new Date(props.sunriseTime).toDateString();
+    console.log(date)
 
     return ( 
-        <table className="table-fill">
+        <table cellPadding="0" cellSpacing="0" border="0" className="table-fill">
             <thead>
                 <tr>
     
@@ -12,8 +14,8 @@ const TableData = ( props ) => {
                     <th className="text-left">Summary</th>
                     <th className="text-left">Wind Gust</th>
                     <th className="text-left">Wind Speed</th>
-                    <th className="text-left">Temperature High</th>
-                    <th className="text-left">Temperature Low</th>
+                    <th className="text-left">Temp High</th>
+                    <th className="text-left">Temp Low</th>
                     <th className="text-left">Humidity</th>
                     <th className="text-left">Pressure</th>
                     <th className="text-left">Cloud Cover</th>
@@ -22,7 +24,7 @@ const TableData = ( props ) => {
                     
                 </tr>
             </thead>
-            <tbody className="table-hover">
+            <tbody className="tbl-content">
                 <tr>
                     <td className="text-left">21st June 2017</td>
                     <td className="text-left">{props.tableDataOne.summary}</td>
