@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import Table from './Table/Table'
 import Aux from './HOC/Aux'
 import Chart from './Chart/Chart'
-import NavBar from './NavBar/Nav'
+import NavBar from './NavBar/nav'
 import Home from './Home/Home'
 import { BrowserRouter as Browser, Switch, Route, Link } from 'react-router-dom'
 import { Ripple } from '@progress/kendo-react-ripple';
