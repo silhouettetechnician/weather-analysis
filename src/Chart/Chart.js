@@ -59,7 +59,7 @@ class Chart extends React.Component{
     render(){
         const { weather17, weather18, weather19 } = this.state
         let chart = null
-        let chart = 
+        chart = 
         <LineChart
         chartDataone={weather17}
         chartDatatwo={weather18}
