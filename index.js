@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { PORT, ENV } = require('./config/environment')
 const express = require('express')
 const request = require('request')

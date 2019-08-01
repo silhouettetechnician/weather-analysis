@@ -25,21 +25,22 @@ class Chart extends React.Component{
 
     componentDidMount(){
         console.log('componentDidMount')
-        axios.get('http://localhost:4000/api/forecast2017')
+        const basepath = window.location.origin;
+        axios.get(`${basepath}/api/forecast2017`)
         .then(res => {
              this.setState({ weather17: res.data.daily.data[0], isLoading: false })
         })
         .then(this.setState({ isLoading: false}))
         .catch(err => console.log(err))
         .then(
-        axios.get('http://localhost:4000/api/forecast2018')
+        axios.get(`${basepath}/api/forecast2018`)
         .then(res => {
             this.setState({weather18: res.data.daily.data[0], isLoading: false})
         })
         .catch(err => console.log(err))
         )
         .then(
-        axios.get('http://localhost:4000/api/forecast2019')
+        axios.get(`${basepath}/api/forecast2019`)
         .then(res => {
             this.setState({weather19: res.data.daily.data[0], isLoading: false})
         })
