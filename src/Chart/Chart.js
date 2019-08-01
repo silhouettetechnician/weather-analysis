@@ -58,17 +58,17 @@ class Chart extends React.Component{
 
     render(){
         const { weather17, weather18, weather19 } = this.state
-        let chart = null
-        chart = 
-        <LineChart
-        chartDataone={weather17}
-        chartDatatwo={weather18}
-        chartDatathree={weather19}
-        /> 
         
         if(this.state.isLoading){
         chart = <Spinner />
         }
+        let chart = 
+        <LineChart
+        chartDataone={weather17}
+        chartDatatwo={weather18}
+        chartDatathree={weather19}
+           /> 
+
     return ( 
         <Aux>
     <div className='bootstrap-wrapper ChartBody' ref={(el) => this.appContainer = el}>

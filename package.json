@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "npm build && node index",
-    "serve": "nodemon"
+    "start": "node index",
+    "serve": "nodemon",
+    "build": "webpack -p"
   },
   "author": "",
   "license": "ISC",
@@ -52,8 +52,6 @@
     "cjs-loader": "^0.1.0",
     "cors": "^2.8.5",
     "dark-sky": "^1.1.5",
-    "dotenv": "^8.0.0",
-    "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "node": "^12.7.0",
