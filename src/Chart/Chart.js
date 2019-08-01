@@ -25,21 +25,22 @@ class Chart extends React.Component{
 
     componentDidMount(){
         console.log('componentDidMount')
-        axios.get('http://localhost:4000/api/forecast2017')
+        const basepath = window.location.origin;
+        axios.get(`${basepath}/api/forecast2017`)
         .then(res => {
              this.setState({ weather17: res.data.daily.data[0], isLoading: false })
         })
         .then(this.setState({ isLoading: false}))
         .catch(err => console.log(err))
         .then(
-        axios.get('http://localhost:4000/api/forecast2018')
+        axios.get(`${basepath}/api/forecast2018`)
         .then(res => {
             this.setState({weather18: res.data.daily.data[0], isLoading: false})
         })
         .catch(err => console.log(err))
         )
         .then(
-        axios.get('http://localhost:4000/api/forecast2019')
+        axios.get(`${basepath}/api/forecast2019`)
         .then(res => {
             this.setState({weather19: res.data.daily.data[0], isLoading: false})
         })
@@ -58,17 +59,17 @@ class Chart extends React.Component{
 
     render(){
         const { weather17, weather18, weather19 } = this.state
-        let chart = null
-        chart = 
-        <LineChart
-        chartDataone={weather17}
-        chartDatatwo={weather18}
-        chartDatathree={weather19}
-        /> 
         
         if(this.state.isLoading){
         chart = <Spinner />
         }
+        let chart = 
+        <LineChart
+        chartDataone={weather17}
+        chartDatatwo={weather18}
+        chartDatathree={weather19}
+           /> 
+
     return ( 
         <Aux>
     <div className='bootstrap-wrapper ChartBody' ref={(el) => this.appContainer = el}>
